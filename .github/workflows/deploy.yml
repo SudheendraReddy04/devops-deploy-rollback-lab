@@ -1,0 +1,24 @@
+name: Deploy Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Display Files
+        run: ls -la
+
+      - name: Deploy Step
+        run: |
+          echo "Deploying application..."
+          mkdir deployment
+          cp index.html deployment/index.html
+          echo "Deployment Completed"
